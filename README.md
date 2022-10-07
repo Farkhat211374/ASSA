@@ -1,3 +1,2 @@
-﻿# Deaign-Pattern-3Gis
-# Deaign-Pattern-3Gis
-ZHANDOS LOX
+﻿# Design-Pattern-3Gis
+
