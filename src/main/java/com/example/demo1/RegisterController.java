@@ -58,9 +58,10 @@ public class RegisterController implements Initializable{
         String lastName = lastnameTextField.getText();
         String login = loginTextField.getText();
         String password = setPasswordField.getText();
+        String status = "available";
 
-        String insertFields = "INSERT INTO users(first_name, last_name, login, password) VALUES ";
-        String insertValues = "('"+ firstName + "','" + lastName + "','" + login + "','" + password + "')";
+        String insertFields = "INSERT INTO users(first_name, last_name, login, password, status) VALUES ";
+        String insertValues = "('"+ firstName + "','" + lastName + "','" + login + "','" + password + "','" + status +"')";
         String insertToRegister = insertFields + insertValues;
 
         try{

@@ -47,6 +47,7 @@ public class SplashScreen implements Initializable {
             System.out.println("SPACE ENTERED!");
             try {
                 SceneController scene = new SceneController();
+                mediaPlayer.stop();
                 scene.switchToUserMainScene(event);
 
             }catch (Exception e){

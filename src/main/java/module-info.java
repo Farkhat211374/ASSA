@@ -14,7 +14,9 @@ module com.example.demo1 {
     requires opencsv;
     requires json.simple;
     requires javafx.media;
-    requires de.jensd.fx.glyphs.fontawesome;
+    //requires fontawesomefx.glyphsbrowser.all;
+    //requires de.jensd.fx.glyphs.fontawesome;
+    //requires fontawesomefx.glyphsbrowser.all;
 
     opens com.example.demo1 to javafx.fxml, javafx.base;
     exports com.example.demo1;

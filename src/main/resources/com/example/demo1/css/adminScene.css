@@ -34,3 +34,16 @@
 .profile{
     -fx-background-color: #656565;
 }
+.userHomeFirstHalf{
+
+}
+.userHomeSecondHalf{
+    -fx-background-color: #ccccff;
+    -fx-background-radius: 45px;
+}
+.carButton{
+    -fx-background-color: #99cc66;
+}
+.planeButton{
+    -fx-background-color: #99cc66;
+}
