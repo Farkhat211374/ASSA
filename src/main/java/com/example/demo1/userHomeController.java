@@ -56,11 +56,15 @@ public class userHomeController {
 
     // Something непонятный
     Car car = new Car();
+    Transport transport = new Transport(car,null);
+
+    public static int distance;
+
+    DB db = DB.getInstance();
 
     public void submitButtonOnAction(ActionEvent event){
         //int distance = Distance.Distance(firstPointTextField.getText(), secondPointTextField.getText());
-        DB db = DB.getInstance();
-        int distance = db.routes(firstPointTextField.getText(), secondPointTextField.getText());
+        this.distance = db.routes(firstPointTextField.getText(), secondPointTextField.getText());
 
         answerLabel.setText("Distance: " + distance + "km");
 
@@ -109,7 +113,7 @@ public class userHomeController {
             SuvBut.setDefaultButton(false);
             SuperBut.setDefaultButton(false);
 
-            car = CarFactory.startFactory(1,2,car);
+            CarBt.BodyTypeCAR = "HatchbackBut";
 
         }else if(event.getSource().equals(SedanBut)){
             HatchbackBut.setDefaultButton(false);
@@ -119,7 +123,7 @@ public class userHomeController {
             SuvBut.setDefaultButton(false);
             SuperBut.setDefaultButton(false);
 
-            car = CarFactory.startFactory(1,1,car);
+            CarBt.BodyTypeCAR = "SedanBut";
 
         }else if(event.getSource().equals(SportBut)){
             HatchbackBut.setDefaultButton(false);
@@ -129,7 +133,7 @@ public class userHomeController {
             SuvBut.setDefaultButton(false);
             SuperBut.setDefaultButton(false);
 
-            car = CarFactory.startFactory(1,4,car);
+            CarBt.BodyTypeCAR = "SportBut";
 
         }else if(event.getSource().equals(MinivanBut)){
             HatchbackBut.setDefaultButton(false);
@@ -139,7 +143,7 @@ public class userHomeController {
             SuvBut.setDefaultButton(false);
             SuperBut.setDefaultButton(false);
 
-            car = CarFactory.startFactory(1,6,car);
+            CarBt.BodyTypeCAR = "MinivanBut";
 
         }else if(event.getSource().equals(SuvBut)){
             HatchbackBut.setDefaultButton(false);
@@ -149,7 +153,7 @@ public class userHomeController {
             SuvBut.setDefaultButton(true);
             SuperBut.setDefaultButton(false);
 
-            car = CarFactory.startFactory(1,3,car);
+            CarBt.BodyTypeCAR = "SuvBut";
 
         }else if(event.getSource().equals(SuperBut)){
             HatchbackBut.setDefaultButton(false);
@@ -159,10 +163,14 @@ public class userHomeController {
             SuvBut.setDefaultButton(false);
             SuperBut.setDefaultButton(true);
 
-            car = CarFactory.startFactory(1,5,car);
+            CarBt.BodyTypeCAR = "SuperBut";
 
         }
-        System.out.println(car.getDescription());
+        car = CarFactory.startFactory();
+        transport.setCar(car);
+        System.out.println(transport.getDescription());
+        System.out.println("Money "+ transport.money(this.distance));
+        System.out.println("Time "+ transport.displacement(this.distance));
     }
 
 
@@ -177,7 +185,7 @@ public class userHomeController {
             dieselBut.setDefaultButton(false);
 
 
-            car = CarFactory.startFactory(2, 5, car);
+            CarBt.FuelTypeCAR = "gasBut";
 
         }else if(event.getSource().equals(petrolBut)){
             gasBut.setDefaultButton(false);
@@ -187,7 +195,7 @@ public class userHomeController {
             dieselBut.setDefaultButton(false);
 
 
-            car = CarFactory.startFactory(2, 1, car);
+            CarBt.FuelTypeCAR = "petrolBut";
 
         }else if(event.getSource().equals(electricBut)){
             gasBut.setDefaultButton(false);
@@ -197,7 +205,7 @@ public class userHomeController {
             dieselBut.setDefaultButton(false);
 
 
-            car = CarFactory.startFactory(2, 3, car);
+            CarBt.FuelTypeCAR = "electricBut";
 
         }else if(event.getSource().equals(hybridBut)){
             gasBut.setDefaultButton(false);
@@ -207,7 +215,7 @@ public class userHomeController {
             dieselBut.setDefaultButton(false);
 
 
-            car = CarFactory.startFactory(2, 4 ,car);
+            CarBt.FuelTypeCAR = "hybridBut";
 
         }else if(event.getSource().equals(dieselBut)){
             gasBut.setDefaultButton(false);
@@ -217,15 +225,15 @@ public class userHomeController {
             dieselBut.setDefaultButton(true);
 
 
-            car = CarFactory.startFactory(2, 2, car);
+            CarBt.FuelTypeCAR = "dieselBut";
 
         }
+        car = CarFactory.startFactory();
+        transport.setCar(car);
+        System.out.println(transport.getDescription());
+        System.out.println("Money "+ transport.money(this.distance));
+        System.out.println("Time "+ transport.displacement(this.distance));
 
-
-
-
-
-        System.out.println(car.getDescription());
     }
 
 
